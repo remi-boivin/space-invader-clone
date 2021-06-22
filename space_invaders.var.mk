@@ -23,7 +23,7 @@ CGLOBALFLAGS=-Wall -Wextra -fexceptions -std=c11 -pedantic
 CXXGLOBALFLAGS=-fexceptions -std=c++17 -pedantic \
 -Wall -Wextra -Wold-style-cast -Woverloaded-virtual -Wfloat-equal -Wwrite-strings -Wpointer-arith -Wcast-qual \
 -Wcast-align -Wconversion -Wshadow -Wredundant-decls -Wdouble-promotion -Winit-self -Wswitch-default \
--Wswitch-enum -Wundef -Wlogical-op -Winline
+-Wswitch-enum -Wundef -Wlogical-op -Winline 
 
 LINKFLAGS=-m64
 
@@ -31,7 +31,7 @@ ifeq ($(CONFIG),Debug)
 	CFLAGS=$(CGLOBALFLAGS) -g -O0 -m64
 	CXXFLAGS=$(CXXGLOBALFLAGS) -g -O0 -m64
 	DEFINES=-D_DEBUG
-	# LIBS+=-lzengine-d
+	LIBS+= -lsfml-graphics -lsfml-window -lsfml-system
 else ifeq ($(CONFIG),Release)
 	CFLAGS=$(CGLOBALFLAGS) -O2 -m64
 	CXXFLAGS=$(CXXGLOBALFLAGS) -O2 -m64
